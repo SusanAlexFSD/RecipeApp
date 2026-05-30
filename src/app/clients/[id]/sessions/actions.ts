@@ -4,10 +4,6 @@ import OpenAI from "openai";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY,
-});
-
 export async function createSession(formData: FormData) {
   const clientId = formData.get("clientId") as string;
   const content = formData.get("content") as string;
@@ -24,6 +20,16 @@ export async function createSession(formData: FormData) {
   };
 
   try {
+    const openaiApiKey = process.env.OPENAI_API_KEY;
+
+    if (!openaiApiKey) {
+      throw new Error("OPENAI_API_KEY is not configured");
+    }
+
+    const openai = new OpenAI({
+      apiKey: openaiApiKey,
+    });
+
     const completion = await openai.chat.completions.create({
       model: "gpt-4o-mini",
       response_format: {
