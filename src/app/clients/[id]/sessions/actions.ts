@@ -68,15 +68,17 @@ ${content}
     console.error("OpenAI failed:", error);
   }
 
-  await prisma.session.create({
-    data: {
-      content,
-      summary: aiResult.summary,
-      actions: aiResult.actions,
-      followUp: aiResult.followUp,
-      clientId,
-    },
-  });
+ await prisma.session.create({
+  data: {
+    content,
+    summary: aiResult.summary,
+    actions: Array.isArray(aiResult.actions)
+      ? aiResult.actions.join("\n")
+      : aiResult.actions,
+    followUp: aiResult.followUp,
+    clientId,
+  },
+});
 
   redirect(`/clients/${clientId}`);
 }
