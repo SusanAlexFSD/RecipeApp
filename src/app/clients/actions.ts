@@ -3,12 +3,18 @@
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
+import { isDemoUser } from "@/lib/isDemoUser";
 
 export async function createClient(formData: FormData) {
   const { userId } = await auth();
 
   if (!userId) {
     throw new Error("You must be signed in");
+  }
+
+  // Demo users can explore the form, but their changes are not saved
+  if (await isDemoUser()) {
+    redirect("/clients");
   }
 
   const user = await currentUser();

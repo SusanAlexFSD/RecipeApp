@@ -8,6 +8,7 @@ import { prisma } from "@/lib/prisma";
 import { deleteClient } from "../actions";
 import { deleteSession } from "./sessions/actions";
 
+
 interface ClientPageProps {
   params: Promise<{
     id: string;

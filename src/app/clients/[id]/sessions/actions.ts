@@ -3,8 +3,12 @@
 import OpenAI from "openai";
 import { redirect } from "next/navigation";
 import { prisma } from "@/lib/prisma";
+import { isDemoUser } from "@/lib/isDemoUser";
 
-export async function createSession(formData: FormData) {
+export async function createSession(
+  previousState: unknown,
+  formData: FormData
+) {
   const clientId = formData.get("clientId") as string;
   const content = formData.get("content") as string;
 
@@ -68,7 +72,21 @@ ${content}
     console.error("OpenAI failed:", error);
   }
 
- await prisma.session.create({
+const demo = await isDemoUser();
+
+if (demo) {
+  return {
+    success: true,
+    demo: true,
+    summary: aiResult.summary,
+    actions: Array.isArray(aiResult.actions)
+      ? aiResult.actions.join("\n")
+      : aiResult.actions,
+    followUp: aiResult.followUp,
+  };
+}
+
+await prisma.session.create({
   data: {
     content,
     summary: aiResult.summary,
@@ -80,7 +98,7 @@ ${content}
   },
 });
 
-  redirect(`/clients/${clientId}`);
+redirect(`/clients/${clientId}`);
 }
 
 export async function deleteSession(formData: FormData) {
