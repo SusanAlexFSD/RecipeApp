@@ -6,7 +6,7 @@ AI Client Notes is a full-stack client management application that uses AI to tu
 
 The application is designed for coaches, freelancers and small business owners who want to keep client information organised while reducing the time spent writing up session notes and follow-ups.
 
-🔗 **Live Demo:** https://clientnotesai.vercel.app
+🔗 **Live Demo:** [https://clientnotesai.vercel.app](https://clientnotesai.vercel.app)
 
 ---
 
@@ -14,22 +14,21 @@ The application is designed for coaches, freelancers and small business owners w
 
 ### Dashboard
 
-![AI Client Notes Dashboard](./docs/screenshots/dashboard.png)
+![ClientNotesAI Dashboard](./docs/screenshots/Dashboard.png)
 
 ### Client Management
 
-![Client Management](./docs/screenshots/client-management.png)
+_Add screenshot here_
 
 ### AI Session Results
 
-![AI Session Results](./docs/screenshots/ai-results.png)
+_Add screenshot here_
 
 ### Session History
 
-![Session History](./docs/screenshots/session-history.png)
+_Add screenshot here_
 
 🔗 **[View the Live Application](https://clientnotesai.vercel.app)**
-
 
 ---
 
@@ -139,7 +138,7 @@ The application combines authentication, a relational database and AI processing
 
 Users sign in through Clerk.
 
-Protected application routes use Clerk middleware and server-side authentication to control access to the application.
+Protected application routes use authentication to control access to the application and ensure users can only access their own client data.
 
 ### 2. Client Creation
 
@@ -162,112 +161,47 @@ The notes are submitted through a Next.js Server Action.
 
 The session notes are sent to OpenAI using the `gpt-4o-mini` model.
 
-The application requests a structured JSON response containing:
+The application requests a structured response containing:
 
-```json
-{
-  "summary": "A concise summary of the session",
-  "actions": "Clear action points for the business owner",
-  "followUp": "A friendly follow-up message written to the client"
-}
-
-
-
-# 🔮 Future Improvements
-
-I'd also make this more realistic and specific to the application.
-
-```markdown
-## 🔮 Future Improvements
-
-There are several areas I would like to develop further as the application evolves.
-
-### 👥 Client Management
-
-- Edit existing client information
-- Add improved client search and filtering
-- Add client tags or categories
-- Add additional client profile information
-
-### 🤖 AI Improvements
-
-- Allow users to customise the AI-generated follow-up style
-- Add different summary formats depending on the type of session
-- Allow users to regenerate individual AI sections
-- Add AI-generated insights based on previous sessions
-- Explore conversation history to provide more contextual AI responses
-
-### 📊 Dashboard
-
-- Add more detailed client and session analytics
-- Display session activity over time
-- Add upcoming follow-up information
-- Add client engagement statistics
-
-### 📄 Export & Communication
-
-- Export session summaries as PDF documents
-- Export client session history
-- Create reusable follow-up templates
-- Add the ability to send follow-up messages directly from the application
-
-### 🔔 Automation
-
-- Add follow-up reminders
-- Schedule future client follow-ups
-- Explore automated email notifications
-
-### 🔐 Security & Reliability
-
-- Improve validation and error handling
-- Add more comprehensive testing
-- Add rate limiting around AI requests
-- Improve handling of failed AI responses
-- Add more granular user permissions
-
-### 🎨 User Experience
-
-- Continue improving responsive layouts
-- Add loading states for AI generation
-- Improve feedback when AI processing is taking place
-- Add clearer error and success messages
-
-
-## 🧠 What I Learned
-
-This project was a major step in developing my full-stack skills because it was one of my first projects where I integrated AI into a complete application rather than using AI as a standalone feature.
-
-### 🤖 Integrating AI into a Full-Stack Application
-
-I learned how to integrate the OpenAI API into a real application and design prompts that produce useful, structured responses rather than simply returning unstructured text.
-
-The AI takes raw client session notes and transforms them into separate:
-
-- Session summaries
+- A session summary
 - Action points
-- Personalised follow-up messages
+- A personalised follow-up message
 
-### 🧩 Working with Structured AI Responses
+### 5. Results
 
-One of the biggest things I learned was that working with AI requires careful handling of its output.
+The generated content is returned to the application and displayed as separate sections.
 
-I learned how to request structured JSON responses and then process that data so each part of the response could be used independently within the application.
+Users can review the results and copy the generated follow-up message.
 
-### 🔗 Connecting AI, the Backend and Database
+### 6. Database Storage
 
-I learned how to connect the complete workflow:
+For normal users, the original session notes and generated AI results are stored in PostgreSQL using Prisma.
 
-```text
-User Input
-    ↓
-Next.js Server Action
-    ↓
-OpenAI API
-    ↓
-Structured AI Response
-    ↓
-Prisma
-    ↓
-PostgreSQL
-    ↓
-React UI
+The main relationships are:
+
+**User → Client → Session**
+
+This allows users to return to a client and view their previous sessions.
+
+### 7. Demo Mode
+
+The application includes a demo mode so visitors can explore the main functionality without permanently modifying the demonstration data.
+
+---
+
+## 🚀 Installation
+
+### Prerequisites
+
+Before running the project locally, you will need:
+
+- Node.js
+- npm
+- PostgreSQL database
+- Clerk account
+- OpenAI API key
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/SusanAlexFSD/clientnotesai.git
