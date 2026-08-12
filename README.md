@@ -159,6 +159,7 @@ I'm currently focused on developing my professional skills across **React, JavaS
 
 ## 🔗 Links
 
-**Live Demo:** [Add your deployed application link]
+**Live Demo:** https://www.susanalexanderfsd.co.uk/AppRecipe/
 
-**GitHub:** [Add your repository link]
+**GitHub:** https://github.com/SusanAlexFSD/RecipeApp
+
