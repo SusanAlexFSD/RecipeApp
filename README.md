@@ -1,207 +1,164 @@
-# 🤖 AI Client Notes
+# 🍽️ RecipeApp
 
-## Short Description
+A full-stack recipe management application built with **React, Node.js, Express and MongoDB**.
 
-AI Client Notes is a full-stack client management application that uses AI to turn rough client session notes into structured summaries, action points and personalised follow-up messages.
+RecipeApp allows users to manage recipes, save favourites and manage shopping-list items through a responsive web interface connected to a REST API.
 
-The application is designed for coaches, freelancers and small business owners who want to keep client information organised while reducing the time spent writing up session notes and follow-ups.
-
-🔗 **Live Demo:** [https://clientnotesai.vercel.app](https://clientnotesai.vercel.app)
+This project demonstrates my practical experience building and integrating a full-stack application from frontend through to backend and database.
 
 ---
 
-## 📸 Screenshot / Demo
+## 🚀 Features
 
-### Dashboard
-
-![ClientNotesAI Dashboard](./docs/screenshots/Dashboard.png)
-
-### Client Management
-
-_Add screenshot here_
-
-### AI Session Results
-
-_Add screenshot here_
-
-### Session History
-
-_Add screenshot here_
-
-🔗 **[View the Live Application](https://clientnotesai.vercel.app)**
-
----
-
-## ✨ Features
-
-### 👤 Authentication
-
-- User authentication using Clerk
-- Protected application routes
-- User-specific client data
-- Sign-in and sign-up functionality
-- Demo user functionality for portfolio visitors
-
-### 👥 Client Management
-
-- Create client profiles
-- Store client names, email addresses and phone numbers
-- Add additional client notes
-- View individual client profiles
-- Delete client records
-- View session history for each client
-
-### 🤖 AI-Powered Session Processing
-
-Users can enter rough notes from a client session and use AI to generate:
-
-- 📝 A concise session summary
-- ✅ Clear action points
-- 💬 A personalised follow-up message
-
-The AI response is returned as structured JSON so each part can be displayed separately within the application.
-
-### 📊 Dashboard
-
-The dashboard provides an overview of client activity, including:
-
-- Total clients
-- Total sessions
-- Recent client activity
-- Client and session information
-
-### 🗂️ Session History
-
-Each client has their own session history.
-
-Saved sessions contain:
-
-- Original session notes
-- AI-generated summary
-- AI-generated action points
-- AI-generated follow-up message
-- Session creation date
-
-### 📋 Copy Follow-Up Messages
-
-Generated follow-up messages can be copied directly from the application for use in client communications.
-
-### 🧪 Demo Mode
-
-A demo user allows visitors to explore the application without permanently saving changes.
-
-This provides an easy way for employers and portfolio visitors to test the application's functionality without creating their own account.
+* User authentication
+* Create and manage recipes
+* View individual recipes
+* Save favourite recipes
+* Manage shopping-list items
+* Recipe categories
+* User-specific data
+* REST API integration
+* Persistent database storage
 
 ---
 
 ## 🛠️ Tech Stack
 
-### Frontend
+**Frontend**
 
-- Next.js
-- React
-- TypeScript
-- Tailwind CSS
+* React
+* Vite
+* JavaScript
+* JSX
+* CSS
+* React Context
 
-### Backend
+**Backend**
 
-- Next.js App Router
-- Next.js Server Actions
-- Node.js
+* Node.js
+* Express
+* REST API
+* Middleware
+* Controllers
+* Routes
 
-### AI
+**Database**
 
-- OpenAI API
-- GPT-4o-mini
-- Structured JSON responses
+* MongoDB
+* MongoDB Atlas
 
-### Authentication
+**Deployment**
 
-- Clerk
+* Railway
+* Vercel
 
-### Database
+**Tools**
 
-- PostgreSQL
-- Prisma ORM
-
-### Deployment
-
-- Vercel
-
----
-
-## ⚙️ How It Works
-
-The application combines authentication, a relational database and AI processing into a single full-stack Next.js application.
-
-### 1. User Authentication
-
-Users sign in through Clerk.
-
-Protected application routes use authentication to control access to the application and ensure users can only access their own client data.
-
-### 2. Client Creation
-
-Authenticated users can create client profiles containing:
-
-- Name
-- Email
-- Phone
-- Additional notes
-
-Each client is associated with the authenticated user.
-
-### 3. Session Creation
-
-A user selects a client and enters their rough session notes.
-
-The notes are submitted through a Next.js Server Action.
-
-### 4. AI Processing
-
-The session notes are sent to OpenAI using the `gpt-4o-mini` model.
-
-The application requests a structured response containing:
-
-- A session summary
-- Action points
-- A personalised follow-up message
-
-### 5. Results
-
-The generated content is returned to the application and displayed as separate sections.
-
-Users can review the results and copy the generated follow-up message.
-
-### 6. Database Storage
-
-For normal users, the original session notes and generated AI results are stored in PostgreSQL using Prisma.
-
-The main relationships are:
-
-**User → Client → Session**
-
-This allows users to return to a client and view their previous sessions.
-
-### 7. Demo Mode
-
-The application includes a demo mode so visitors can explore the main functionality without permanently modifying the demonstration data.
+* Git
+* GitHub
+* ESLint
 
 ---
 
-## 🚀 Installation
+## 🏗️ Architecture
 
-### Prerequisites
+The application is separated into frontend and backend applications.
 
-Before running the project locally, you will need:
+```text
+React / Vite
+     ↓
+REST API
+     ↓
+Node.js / Express
+     ↓
+MongoDB
+```
 
-- Node.js
-- npm
-- PostgreSQL database
-- Clerk account
-- OpenAI API key
+The backend uses a structured approach with separate **controllers, routes, middleware, models and utilities**.
 
-### 1. Clone the repository
+---
 
-```bash
-git clone https://github.com/SusanAlexFSD/clientnotesai.git
+## 📸 Screenshots
+
+### Recipe Dashboard
+
+![Recipe Dashboard](./RepoScreenshots/Recipe1.png)
+
+### Recipe Details
+
+![Recipe Details](./RepoScreenshots/Recipe2.png)
+
+### Shopping List
+
+![Shopping List](./RepoScreenshots/Recipe4.png)
+
+### Favourites
+
+![Favourites](./RepoScreenshots/Recipe3.png)
+
+> Screenshots show the application interface and key functionality.
+
+---
+
+## 🔧 Development & Problem Solving
+
+During development I worked through a number of real-world full-stack issues, including:
+
+* API `404` errors
+* CORS configuration
+* MongoDB duplicate-key errors
+* Frontend/backend integration
+* Route and parameter debugging
+* Local and deployed environment configuration
+
+These issues required tracing requests across the application from the React frontend through the Express API and into the database.
+
+---
+
+## 🌍 Deployment
+
+The project has been developed and deployed using cloud services including:
+
+* **MongoDB Atlas** for database hosting
+* **Railway** for backend/deployment configuration
+* **Vercel** for deployment
+
+---
+
+## 📚 What This Project Demonstrates
+
+This project demonstrates my ability to:
+
+* Build a React frontend
+* Develop a Node.js/Express backend
+* Design and consume REST APIs
+* Work with MongoDB
+* Implement user authentication
+* Connect frontend, backend and database layers
+* Debug full-stack issues
+* Work with cloud deployment
+* Use Git and GitHub for version control
+
+---
+
+## 🎯 Project Status
+
+**Portfolio project — active development**
+
+RecipeApp is part of my full-stack development portfolio and demonstrates my progression from frontend development into building complete web applications.
+
+---
+
+## 👩‍💻 About Me
+
+I'm a self-taught full-stack web developer with a background in project management and telecommunications.
+
+I'm currently focused on developing my professional skills across **React, JavaScript, Node.js, APIs, databases and cloud technologies**.
+
+---
+
+## 🔗 Links
+
+**Live Demo:** [Add your deployed application link]
+
+**GitHub:** [Add your repository link]
