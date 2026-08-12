@@ -1,0 +1,345 @@
+/* ---------------------------------------------------
+   PAGE WRAPPER
+--------------------------------------------------- */
+.recipe-page {
+  max-width: 1400px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 180px 24px 32px; /* 🔥 increased for navbar */
+  box-sizing: border-box;
+  color: #333;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ---------------------------------------------------
+   BACK LINK
+--------------------------------------------------- */
+.recipe-back {
+  margin-bottom: 20px;
+  padding-top: 6px; /* slight breathing room */
+}
+
+.recipe-back a {
+  color: #2f5d3a;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.recipe-back a:hover {
+  text-decoration: underline;
+}
+
+/* ---------------------------------------------------
+   TITLE
+--------------------------------------------------- */
+.recipe-title {
+  font-size: clamp(2.2rem, 3vw, 3rem);
+  font-weight: 800;
+  margin: 0 0 18px;
+  color: #1f1f1f;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+}
+
+/* ---------------------------------------------------
+   RATING BLOCK
+--------------------------------------------------- */
+.recipe-rating-block {
+  margin-bottom: 22px;
+}
+
+.recipe-rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-size: 1.08rem;
+  color: #222;
+  flex-wrap: wrap;
+}
+
+.recipe-stars {
+  color: #222;
+  font-size: 1.35rem;
+}
+
+.recipe-score,
+.recipe-rating-count {
+  font-weight: 500;
+  color: #444;
+}
+
+.recipe-rating-separator {
+  color: #666;
+}
+
+.rate-btn {
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.rate-btn:hover {
+  text-decoration: underline;
+}
+
+/* ---------------------------------------------------
+   TOP SECTION
+--------------------------------------------------- */
+.recipe-top {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(260px, 0.8fr);
+  gap: 48px;
+  align-items: start;
+  margin-bottom: 56px;
+}
+
+.recipe-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-top: 4px;
+}
+
+/* ---------------------------------------------------
+   IMAGE
+--------------------------------------------------- */
+.recipe-top-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+/* ---------------------------------------------------
+   TIMES
+--------------------------------------------------- */
+.recipe-times {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.recipe-time-item h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.recipe-time-item p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+/* ---------------------------------------------------
+   ACTION BUTTONS
+--------------------------------------------------- */
+.recipe-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.favorite-btn,
+.shopping-btn {
+  padding: 9px 16px;
+  border: none;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.96rem;
+  cursor: pointer;
+  color: white;
+}
+
+.favorite-btn {
+  background: #e85a5a;
+}
+
+.favorite-btn:hover {
+  background: #d94c4c;
+  transform: translateY(-2px);
+}
+
+.favorite-btn.remove {
+  background: #c0392b;
+}
+
+.shopping-btn {
+  background: #6ea85f;
+}
+
+.shopping-btn:hover {
+  background: #5c8f50;
+  transform: translateY(-2px);
+}
+
+.shopping-btn.added {
+  background: #5c8f50;
+}
+
+/* ---------------------------------------------------
+   LINKS
+--------------------------------------------------- */
+.recipe-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.recipe-links-main {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.recipe-links-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.link-btn {
+  padding: 7px 13px;
+  background: #eef5e8;
+  border-radius: 999px;
+  color: #2f3a2f;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: 1px solid #cfd8c3;
+}
+
+.link-btn:hover {
+  background: #e4efdc;
+}
+
+/* ICON BUTTONS */
+.icon-link-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: #f4f4f4;
+  color: #2f5d50;
+  cursor: pointer;
+}
+
+.icon-link-btn:hover {
+  background: #e6f4ee;
+  color: #3d8b6d;
+}
+
+.icon-link-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* ---------------------------------------------------
+   COLUMNS
+--------------------------------------------------- */
+.recipe-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  position: relative;
+}
+
+.recipe-columns::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 1px;
+  top: 0;
+  bottom: 0;
+  background: #dcdcdc;
+}
+
+/* ---------------------------------------------------
+   SECTIONS
+--------------------------------------------------- */
+.ingredients-section h2,
+.instructions-section h2 {
+  font-size: 2rem;
+  margin-bottom: 14px;
+  border-bottom: 1px solid #dcdcdc;
+  padding-bottom: 8px;
+}
+
+.ingredients-section li {
+  padding: 7px 0;
+  display: flex;
+  gap: 10px;
+}
+
+.ingredients-section li::before {
+  content: "•";
+  color: #6ea85f;
+}
+
+/* ---------------------------------------------------
+   SHARE MESSAGE
+--------------------------------------------------- */
+.share-message {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  color: #2f7d32;
+}
+
+/* ---------------------------------------------------
+   PRINT
+--------------------------------------------------- */
+@media print {
+  .recipe-back,
+  .recipe-rating-block,
+  .recipe-actions,
+  .recipe-links,
+  .share-message {
+    display: none !important;
+  }
+
+  .recipe-page {
+    padding: 0;
+  }
+}
+
+/* ---------------------------------------------------
+   RESPONSIVE
+--------------------------------------------------- */
+
+/* TABLET */
+@media (max-width: 900px) {
+  .recipe-page {
+    padding: 200px 20px 24px; /* 🔥 bigger */
+  }
+
+  .recipe-top {
+    grid-template-columns: 1fr;
+  }
+
+  .recipe-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .recipe-columns::before {
+    display: none;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .recipe-page {
+    padding: 220px 16px 20px; /* 🔥 biggest */
+  }
+
+  .recipe-title {
+    font-size: 1.9rem;
+  }
+
+  .favorite-btn,
+  .shopping-btn,
+  .link-btn {
+    width: 100%;
+  }
+}

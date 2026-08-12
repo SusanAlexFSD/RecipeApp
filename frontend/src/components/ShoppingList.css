@@ -1,0 +1,428 @@
+/* ============================
+   PAGE
+   ============================ */
+
+body {
+  margin: 0;
+  background: #e7e7e6;
+  font-family: "Inter", sans-serif;
+}
+
+.shoppingList-page {
+  min-height: 100vh;
+  padding: 160px 32px 32px;
+  background: #e7e7e6;
+  box-sizing: border-box;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ============================
+   BACK LINK
+   ============================ */
+
+.shoppingList-nav {
+  margin-bottom: 20px;
+}
+
+.shoppingList-backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #2f5d3a;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.shoppingList-backLink:hover {
+  text-decoration: underline;
+}
+
+/* ============================
+   HEADER
+   ============================ */
+
+.shoppingList-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #d8d4b8;
+  margin-bottom: 28px;
+}
+
+.shoppingList-headerText {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.shoppingList-title {
+  margin: 0 0 8px;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: #1f1f1f;
+}
+
+.shoppingList-message {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #666;
+}
+
+/* ============================
+   CLEAR ALL BUTTON
+   ============================ */
+
+.shoppingList-clearBtn {
+  border: none;
+  background: #7fbe5d;
+  border: 1px solid #72ac54;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  flex-shrink: 0;
+}
+
+.shoppingList-clearBtn:hover {
+  background: #72b150;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+/* ============================
+   EMPTY STATE
+   ============================ */
+
+.shoppingList-empty {
+  padding: 40px 20px;
+  text-align: center;
+  color: #777;
+  font-size: 1rem;
+}
+
+/* ============================
+   GRID LAYOUT
+   ============================ */
+
+.shoppingList-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+/* ============================
+   RECIPE CARD
+   ============================ */
+
+.shoppingList-card {
+  background: #ffffff;
+  border: 1px solid #ddd8bb;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.shoppingList-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* ============================
+   CARD HEADER
+   ============================ */
+
+.shoppingList-cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.shoppingList-recipeTitle {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  position: relative;
+  padding-bottom: 6px;
+}
+
+.shoppingList-recipeTitle::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 250px;
+  height: 3px;
+  background: #7fbe5d;
+  border-radius: 2px;
+}
+
+/* Remove button */
+.shoppingList-removeBtn {
+  border: none;
+  background: #f26b5e;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  flex-shrink: 0;
+}
+
+.shoppingList-removeBtn:hover {
+  background: #e45d50;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+.shoppingList-thumbRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.shoppingList-thumb {
+  width: 84px;
+  height: 84px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* ============================
+   INGREDIENT LIST
+   ============================ */
+
+.shoppingList-count {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.shoppingList-ingredients {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.shoppingList-ingredient {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+.shoppingList-ingredientIcon {
+  font-size: 1rem;
+  color: #7fbe5d;
+}
+
+/* ============================
+   MODAL
+   ============================ */
+
+.confirmModal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 20, 20, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.confirmModal {
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+  animation: modalFadeIn 0.18s ease;
+}
+
+.confirmModal-title {
+  margin: 0 0 10px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.confirmModal-text {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #666;
+}
+
+.confirmModal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.confirmModal-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.confirmModal-btn:hover {
+  transform: translateY(-1px);
+}
+
+.confirmModal-btn-secondary {
+  background: #f1f1f1;
+  color: #333;
+}
+
+.confirmModal-btn-secondary:hover {
+  background: #e7e7e7;
+}
+
+.confirmModal-btn-danger {
+  background: #d9534f;
+  color: #fff;
+}
+
+.confirmModal-btn-danger:hover {
+  background: #c94440;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+.shoppingList-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.icon-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: #f4f4f4;
+  color: #2f5d50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.icon-btn:hover {
+  background: #e6f4ee;
+  color: #3d8b6d;
+  transform: translateY(-1px);
+}
+
+.icon-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.share-message {
+  margin: 10px 0 18px;
+  font-size: 0.95rem;
+  color: #2f7d32;
+  font-weight: 600;
+}
+
+@media print {
+  .shoppingList-nav,
+  .shoppingList-actions,
+  .shoppingList-clearBtn,
+  .confirmModal-overlay,
+  .share-message {
+    display: none !important;
+  }
+
+  .shoppingList-page {
+    padding: 0;
+    background: white;
+  }
+
+  .shoppingList-card {
+    box-shadow: none;
+    border: 1px solid #ddd;
+  }
+}
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+
+  @media (max-width: 1200px) and (min-width: 561px) {
+  .shoppingList-recipeTitle::after {
+    width: 220px; 
+  }
+}
+
+@media (max-width: 900px) {
+  .shoppingList-page {
+    padding: 180px 24px 24px;
+  }
+
+  .shoppingList-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .shoppingList-recipeTitle::after {
+    width: 60px;
+  }
+}
+
+@media (max-width: 560px) {
+  .shoppingList-page {
+    padding: 195px 16px 20px;
+  }
+
+  .shoppingList-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .shoppingList-title {
+    font-size: 1.6rem;
+  }
+
+  .shoppingList-message {
+    font-size: 1rem;
+  }
+
+  .shoppingList-recipeTitle::after {
+    width: 240px;
+  }
+}
