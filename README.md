@@ -82,19 +82,19 @@ The backend uses a structured approach with separate **controllers, routes, midd
 
 ### Recipe Dashboard
 
-![Recipe Dashboard](./RepoScreenshots/Recipe1.png)
+![Recipe Dashboard](./docs/screenshots/Recipe1.png)
 
 ### Recipe Details
 
-![Recipe Details](./RepoScreenshots/Recipe2.png)
+![Recipe Details](./docs/screenshots/Recipe2.png)
 
 ### Shopping List
 
-![Shopping List](./RepoScreenshots/Recipe4.png)
+![Shopping List](./docs/screenshots/Recipe4.png)
 
 ### Favourites
 
-![Favourites](./RepoScreenshots/Recipe3.png)
+![Favourites](./docs/screenshots/Recipe3.png)
 
 > Screenshots show the application interface and key functionality.
 
